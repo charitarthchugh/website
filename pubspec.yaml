@@ -34,7 +34,7 @@ dev_dependencies:
 flutter:
   assets:
      - assets/images/myself.jpg
-     - assets/images/favicon.png
+  
      - assets/images/planet-orange.png
      - assets/images/stars-bg.png
 
