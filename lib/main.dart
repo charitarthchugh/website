@@ -25,7 +25,8 @@ class MyAppState extends State<MyApp>{
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         fontFamily: 'OpenSans',
-        primaryColorDark: Colors.black12,//temporary
+        primaryColorDark: Color.fromRGBO(7,13, 47, 1),
+        accentColor:Color.fromRGBO(247,174, 110, 1),
       ),
       home: ProfilePage(),
     );

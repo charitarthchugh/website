@@ -23,7 +23,7 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? AppBar(
                 elevation: 0,
-                backgroundColor: Colors.black38,
+                backgroundColor:Color.fromRGBO(7,13, 47, 1),
               )
             : null,
         drawer: ResponsiveWidget.isSmallScreen(context)
@@ -31,16 +31,14 @@ class _ProfilePageState extends State<ProfilePage> {
             : null, //No Drawer for large screens
         body: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: <Color>[
-                  Color.fromRGBO(41, 41, 41, 1),
-                  Color.fromRGBO(0, 0, 0, 1),
-                ],
+            color: Color.fromRGBO(7,13, 47, 1),
+              image: DecorationImage(
+                  image: AssetImage(
+                'images/stars-bg.png',
               )),
+              ),
           child: ResponsiveWidget(
-            largeScreen: ListView( children: <Widget>[
+            largeScreen: ListView(children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -48,10 +46,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .1,
                   ),
+                  Home(),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * .2,
+                    height: MediaQuery.of(context).size.height * .6,
                   ),
-                  //Home(),
                   AboutMe(),
                   Social()
                 ],
