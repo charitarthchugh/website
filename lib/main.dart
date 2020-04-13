@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp>{
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Charitarth Chugh',
       theme: ThemeData(
         // This makes the visual density adapt to the platform that you run

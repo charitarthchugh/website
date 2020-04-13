@@ -11,16 +11,9 @@ class NavHeader extends StatelessWidget {
       largeScreen: Row(
         mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
             ? MainAxisAlignment.center
-            : MainAxisAlignment.spaceBetween,
+            : MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text( //Need to Customize this- ie create a logo
-            'Charitarth Chugh',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white70,
-                fontSize: 30),
-          ),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
               children: [

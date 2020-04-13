@@ -28,7 +28,7 @@ class AboutMe extends StatelessWidget {
         softWrap: true,
         textScaleFactor: 1.5,
         textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white70),
+        style: TextStyle(color: Colors.white70,fontSize: 16),
       )
     ],
   );
@@ -38,7 +38,18 @@ class AboutMe extends StatelessWidget {
     return ResponsiveWidget(
       largeScreen: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[profileImage(context),ProfileData],
+        children: <Widget>[profileImage(context), ProfileData],
+      ),
+      smallScreen: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          profileImage(context),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .1,
+          ),
+          ProfileData
+        ],
       ),
     );
   }
