@@ -27,13 +27,6 @@ class DesktopNavbar extends StatelessWidget {
                 )),
               ),
               Text(
-                'Home',
-                style: GoogleFonts.openSans(
-                    textStyle: TextStyle(
-                  color: Colors.white70,
-                )),
-              ),
-              Text(
                 'About Me',
                 style: GoogleFonts.openSans(
                     textStyle: TextStyle(
