@@ -1,3 +1,4 @@
+import 'package:charitarthchugh/Navbar/Navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -38,7 +39,9 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Column(
-
+          children:[
+            Navbar(),
+          ],
         ),
         decoration: BoxDecoration(
             gradient: LinearGradient(

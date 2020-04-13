@@ -12,11 +12,47 @@ class DesktopNavbar extends StatelessWidget {
             'Charitarth Chugh',
             style: GoogleFonts.openSans(
                 textStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-            )),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70,
+                    fontSize: 30)),
           ),
+          Row(
+            children: [
+              //Need to wrap with buttons later
+              Text(
+                'Home',
+                style: GoogleFonts.openSans(
+                    textStyle: TextStyle(
+                  color: Colors.white70,
+                )),
+              ),
+              Text(
+                'Home',
+                style: GoogleFonts.openSans(
+                    textStyle: TextStyle(
+                  color: Colors.white70,
+                )),
+              ),
+              Text(
+                'About Me',
+                style: GoogleFonts.openSans(
+                    textStyle: TextStyle(
+                  color: Colors.white70,
+                )),
+              ),
+              Text(
+                'Portfolio',
+                style: GoogleFonts.openSans(
+                    textStyle: TextStyle(
+                  color: Colors.white70,
+                )),
+              ),
+            ],
+          )
         ],
       ),
     );
   }
 }
+
+
