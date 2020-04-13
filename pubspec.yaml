@@ -32,6 +32,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+     - assets/images/favicon.png
+
   # Add Open Sans
   fonts:
     - family: OpenSans
