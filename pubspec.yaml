@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  animated_text_kit: ^2.0.0
+  font_awesome_flutter: ^8.8.1
   flutter:
     sdk: flutter
 
