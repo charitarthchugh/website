@@ -8,6 +8,7 @@ class CstmDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
         child: Container(
+          height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           color: Color.fromRGBO(7,13, 47, 1),
           image: DecorationImage(
