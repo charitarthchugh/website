@@ -55,7 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: <Widget>[
 
                   NavHeader(),
-                  scrollableItems,
+
                 ]),
           ),
         ),
