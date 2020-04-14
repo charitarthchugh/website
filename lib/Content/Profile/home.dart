@@ -13,10 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  /*static bool isSmallScreen(BuildContext context) {
-    return MediaQuery.of(context).size.width < 800;
-  }*/
-
   @override
   Widget build(BuildContext context) {
     Widget _typewriterText = Container(
@@ -67,6 +63,7 @@ class _HomeState extends State<Home> {
     Widget smallScreen = Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         _typewriterText,
         SizedBox(
@@ -90,7 +87,8 @@ class _HomeState extends State<Home> {
       ],
     );
     Widget largeScreen = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Flexible(flex: 2, child: _typewriterText),
           Flexible(
@@ -106,16 +104,18 @@ class _HomeState extends State<Home> {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage('images/planet-orange.png'),
+                      image: AssetImage(
+                        'images/planet-orange.png',
+                      ),
                       alignment: Alignment.center,
                       fit: BoxFit.fill)),
             ),
           ),
         ]);
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth > 1200) {
-        return largeScreen;
-      } else if (constraints.maxWidth < 1200 && constraints.maxWidth > 800) {
+      if (constraints.maxWidth < 1200 && constraints.maxWidth > 800) {
+        return smallScreen ?? largeScreen;
+      } else if (constraints.maxWidth > 1200) {
         return largeScreen;
       } else {
         return smallScreen ?? largeScreen;
