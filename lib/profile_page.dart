@@ -1,8 +1,9 @@
+import 'dart:ui';
+
 //External Packages
 import 'package:flutter/material.dart';
-
 //Internal packages
-import './responsive_widget.dart';
+import 'ResponsiveWidgets/responsive_widget.dart';
 import './Content/Navigation/NavHeader.dart';
 import './Content/Navigation/cstm_drawer.dart';
 import './Content/Profile/home.dart';
@@ -15,6 +16,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final GlobalKey globalKey=GlobalKey();
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -38,7 +40,9 @@ class _ProfilePageState extends State<ProfilePage> {
               )),
               ),
           child: ResponsiveWidget(
-            largeScreen: ListView(children: <Widget>[
+            largeScreen: ListView(
+                reverse: false,
+                children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[

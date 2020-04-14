@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//Internal Packages
+import 'package:charitarthchugh/ResponsiveWidgets/responsive_widget_stateful.dart';
 
 class Social extends StatefulWidget {
   Social({Key key, this.title}) : super(key: key);
@@ -27,10 +29,6 @@ class _SocialState extends State<Social> {
     }
   }
 
-  static bool isSmallScreen(BuildContext context) {
-    return MediaQuery.of(context).size.width < 800;
-  }
-
 //While there is only one link now, this is designed for easy expandability
   Widget _socialButton(
           {@required IconData FAicon,
@@ -52,7 +50,7 @@ class _SocialState extends State<Social> {
 
   @override
   Widget build(BuildContext context) {
-    return isSmallScreen(context)
+    return ResponsiveWidgetStateful.isSmallScreen(context)
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -87,7 +85,8 @@ class _SocialState extends State<Social> {
                   FAicon: FontAwesomeIcons.githubAlt,
                   txt: 'Github',
                   url: "https://github.com/charitarthchugh/"),
-              VerticalDivider(color:Colors.grey),
+              VerticalDivider(thickness:5,
+                color:Colors.white70,),
               Row(
                 children: <Widget>[
                   Icon(FontAwesomeIcons.copyright,color: Colors.white70,),

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 //Internal Packages
-import 'package:charitarthchugh/responsive_widget.dart';
+import 'package:charitarthchugh/ResponsiveWidgets/responsive_widget.dart';
 
 class NavHeader extends StatelessWidget {
   @override

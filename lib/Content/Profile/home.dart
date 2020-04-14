@@ -1,7 +1,9 @@
 //External Packages
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+
 //Internal Packages
+import 'package:charitarthchugh/ResponsiveWidgets/responsive_widget_stateful.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -11,9 +13,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  static bool isSmallScreen(BuildContext context) {
+  /*static bool isSmallScreen(BuildContext context) {
     return MediaQuery.of(context).size.width < 800;
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class _HomeState extends State<Home> {
       padding: const EdgeInsets.all(15),
       child: Column(children: <Widget>[
         Row(
-          mainAxisAlignment: isSmallScreen(context)
+          mainAxisAlignment: ResponsiveWidgetStateful.isSmallScreen(context)
               ? MainAxisAlignment.spaceEvenly
               : MainAxisAlignment.start,
           children: <Widget>[
@@ -35,7 +37,7 @@ class _HomeState extends State<Home> {
           ],
         ),
         Row(
-          mainAxisAlignment: isSmallScreen(context)
+          mainAxisAlignment: ResponsiveWidgetStateful.isSmallScreen(context)
               ? MainAxisAlignment.spaceEvenly
               : MainAxisAlignment.start,
           children: <Widget>[
@@ -46,8 +48,9 @@ class _HomeState extends State<Home> {
               //Instead of using a timer, I just added spaces
               text: [' ', ' ', 'Charitarth \nChugh_'],
               totalRepeatCount: 1,
-              textAlign:
-                  isSmallScreen(context) ? TextAlign.center : TextAlign.start,
+              textAlign: ResponsiveWidgetStateful.isSmallScreen(context)
+                  ? TextAlign.center
+                  : TextAlign.start,
               alignment: Alignment.topLeft,
               speed: Duration(milliseconds: 100),
               displayFullTextOnTap: false,
@@ -71,10 +74,10 @@ class _HomeState extends State<Home> {
         ),
         AnimatedContainer(
           duration: Duration(seconds: 1),
-          height: isSmallScreen(context)
+          height: ResponsiveWidgetStateful.isSmallScreen(context)
               ? MediaQuery.of(context).size.height * .25
               : MediaQuery.of(context).size.width * .25,
-          width: isSmallScreen(context)
+          width: ResponsiveWidgetStateful.isSmallScreen(context)
               ? MediaQuery.of(context).size.height * .25
               : MediaQuery.of(context).size.width * .25,
           decoration: BoxDecoration(
@@ -94,10 +97,10 @@ class _HomeState extends State<Home> {
             flex: 2,
             child: AnimatedContainer(
               duration: Duration(seconds: 1),
-              height: isSmallScreen(context)
+              height: ResponsiveWidgetStateful.isSmallScreen(context)
                   ? MediaQuery.of(context).size.height * .25
                   : MediaQuery.of(context).size.width * .25,
-              width: isSmallScreen(context)
+              width: ResponsiveWidgetStateful.isSmallScreen(context)
                   ? MediaQuery.of(context).size.height * .25
                   : MediaQuery.of(context).size.width * .25,
               decoration: BoxDecoration(
