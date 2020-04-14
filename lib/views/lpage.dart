@@ -20,8 +20,8 @@ class LPage extends StatefulWidget {
 }
 
 class _LPageState extends State<LPage> {
-  final GlobalKey globalKey = GlobalKey();
-  
+ // final List<GlobalKey> itemKey = GlobalKey();
+
   @override
   void dispose() {
     super.dispose();
@@ -42,7 +42,7 @@ class _LPageState extends State<LPage> {
         : null, //No Drawer for large screens ,
     body: new Container(
       width: MediaQuery.of(context).size.width,
-      child: new ScrollableContent(),//TEMP
+      child: null,//TEMP
       decoration: BoxDecoration(
          color: Color.fromRGBO(7, 13, 47, 1),
          image: DecorationImage(

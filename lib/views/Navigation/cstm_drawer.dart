@@ -28,6 +28,7 @@ class CstmDrawer extends StatelessWidget {
                   fontSize: 30),
             ),
           ),
+          Spacer(flex: 2,),
           Divider(color: Colors.blueGrey,),
           _NavButton(
             onPressed: () {

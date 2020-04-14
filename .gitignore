@@ -116,6 +116,5 @@ charitarthchugh.iml
 .firebase/
 firebase.json
 .firebaserc
-assets/
 *.log
 generated_plugin_registrant.dart
