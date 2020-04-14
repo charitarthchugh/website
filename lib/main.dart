@@ -2,11 +2,9 @@
 import 'package:flutter/material.dart';
 
 //Internal Packages
-import './profile_page.dart';
+import 'views/lpage.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   const MyApp({Key key}) : super(key: key);
@@ -16,6 +14,10 @@ class MyApp extends StatefulWidget {
   }
 }
 class MyAppState extends State<MyApp>{
+  @override
+  void dispose() {
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,7 +30,7 @@ class MyAppState extends State<MyApp>{
         primaryColorDark: Color.fromRGBO(7,13, 47, 1),
         accentColor:Color.fromRGBO(247,174, 110, 1),
       ),
-      home: ProfilePage(),
+      home: LPage()
     );
   }
 }

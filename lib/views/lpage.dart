@@ -7,27 +7,27 @@ import 'package:rxdart/rxdart.dart';
 //Internal packages
 import 'package:charitarthchugh/views/scrollable_content.dart';
 import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
-import './components/responsive_widget.dart';
-import './views/Navigation/NavHeader.dart';
-import './views/Navigation/cstm_drawer.dart';
-import './views/Profile/home.dart';
-import './views/Profile/about_me.dart';
-import './views/social.dart';
+import '../components/responsive_widget.dart';
+import 'Navigation/NavHeader.dart';
+import 'Navigation/cstm_drawer.dart';
+import 'Profile/home.dart';
+import 'Profile/about_me.dart';
+import 'social.dart';
 
-class ProfilePage extends StatefulWidget {
+class LPage extends StatefulWidget {
   @override
-  _ProfilePageState createState() => new _ProfilePageState();
+  _LPageState createState() => new _LPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _LPageState extends State<LPage> {
   final GlobalKey globalKey = GlobalKey();
-
+  
   @override
   void dispose() {
     super.dispose();
   }
 
-  _ProfilePageState({key: Key});
+  _LPageState({key: Key});
 
   @override
   Widget build(BuildContext context) {
