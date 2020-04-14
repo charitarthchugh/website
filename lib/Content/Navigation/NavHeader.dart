@@ -26,15 +26,9 @@ class NavHeader extends StatelessWidget {
                 SizedBox(
                   width: 30,
                 ),
-                _NavButton(
-                  onPressed: () {
-                    print('pressed Contact');
-                  },
-                  text: 'Contact',
-                ),
-                SizedBox(
+                /*SizedBox(
                   width: 30,
-                ),
+                ),*/
                 _NavButton(
                   onPressed: () {
                     print('pressed Resume');

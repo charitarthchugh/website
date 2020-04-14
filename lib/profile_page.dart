@@ -51,7 +51,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: MediaQuery.of(context).size.height * .6,
                   ),
                   AboutMe(),
-                  Social()
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .2,
+                  ),
+                  Social(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .1,
+                  ),
                 ],
               ),
             ]),

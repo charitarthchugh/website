@@ -115,3 +115,4 @@ charitarthchugh.iml
 ### Project Specific
 assets/
 *.log
+generated_plugin_registrant.dart

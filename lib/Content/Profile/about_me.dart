@@ -9,10 +9,10 @@ class AboutMe extends StatelessWidget {
         duration: Duration(seconds: 1),
         height: ResponsiveWidget.isSmallScreen(context)
             ? MediaQuery.of(context).size.height * .25
-            : MediaQuery.of(context).size.width * .25,
+            : MediaQuery.of(context).size.width * .20,
         width: ResponsiveWidget.isSmallScreen(context)
             ? MediaQuery.of(context).size.height * .25
-            : MediaQuery.of(context).size.width * .25,
+            : MediaQuery.of(context).size.width * .20,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
