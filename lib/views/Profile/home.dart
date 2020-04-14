@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 //Internal Packages
-import 'package:charitarthchugh/ResponsiveWidgets/responsive_widget_stateful.dart';
+import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);

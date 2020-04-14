@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //Internal Packages
-import 'package:charitarthchugh/ResponsiveWidgets/responsive_widget_stateful.dart';
+import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
 
 class Social extends StatefulWidget {
   Social({Key key, this.title}) : super(key: key);

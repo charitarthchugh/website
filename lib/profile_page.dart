@@ -1,16 +1,18 @@
 import 'dart:ui';
 
 //External Packages
-import 'package:charitarthchugh/ResponsiveWidgets/responsive_widget_stateful.dart';
 import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
 
 //Internal packages
-import 'ResponsiveWidgets/responsive_widget.dart';
-import './Content/Navigation/NavHeader.dart';
-import './Content/Navigation/cstm_drawer.dart';
-import './Content/Profile/home.dart';
-import './Content/Profile/about_me.dart';
-import './Content/social.dart';
+import 'package:charitarthchugh/views/scrollable_content.dart';
+import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
+import './components/responsive_widget.dart';
+import './views/Navigation/NavHeader.dart';
+import './views/Navigation/cstm_drawer.dart';
+import './views/Profile/home.dart';
+import './views/Profile/about_me.dart';
+import './views/social.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -29,7 +31,25 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new ResponsiveWidgetStateful(
+    return new Scaffold(
+        appBar: ResponsiveWidget.isSmallScreen(context)
+        ? AppBar(
+      elevation: 0,
+      backgroundColor: Color.fromRGBO(7, 13, 47, 1),
+    ) : null,
+    drawer:ResponsiveWidget.isSmallScreen(context)
+    ? CstmDrawer()
+        : null, //No Drawer for large screens ,
+    body: new Container(
+      width: MediaQuery.of(context).size.width,
+      child: new ScrollableContent(),//TEMP
+      decoration: BoxDecoration(
+         color: Color.fromRGBO(7, 13, 47, 1),
+         image: DecorationImage(
+         image: AssetImage('images/stars-bg.png',)),)
+
+    ));
+    /*new ResponsiveWidgetStateful(
       largeScreen: new Scaffold(
         backgroundColor: Colors.black38,
         appBar: ResponsiveWidget.isSmallScreen(context)
@@ -53,45 +73,12 @@ class _ProfilePageState extends State<ProfilePage> {
             largeScreen: new Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-
                   NavHeader(),
 
                 ]),
           ),
         ),
       ),
-    );
-
-//Temporarily in this spot, planning to move into its ow
-    ListView scrollableItems = new ListView(children: [SizedBox(
-      height: MediaQuery
-          .of(context)
-          .size
-          .height * .1,
-    ),
-      Home(),
-      SizedBox(
-        height: MediaQuery
-            .of(context)
-            .size
-            .height * .6,
-      ),
-      AboutMe(),
-      SizedBox(
-        height: MediaQuery
-            .of(context)
-            .size
-            .height * .2,
-      ),
-      Social(),
-      SizedBox(
-        height: MediaQuery
-            .of(context)
-            .size
-            .height * .1,
-      )
-    ],);
-    ScrollController _scrollController = ScrollController(
-      initialScrollOffset: 0,)
+    );*/
   }
 }
