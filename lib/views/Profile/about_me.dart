@@ -23,7 +23,7 @@ class AboutMe extends StatelessWidget {
                 alignment: Alignment.center,
                 fit: BoxFit.cover)),
       );
-  final ProfileData = Column(
+  final profileData = Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       Text(
@@ -41,7 +41,7 @@ class AboutMe extends StatelessWidget {
     return ResponsiveWidget(
       largeScreen: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[profileImage(context), ProfileData],
+        children: <Widget>[profileImage(context), profileData],
       ),
       smallScreen: Column(
         mainAxisSize: MainAxisSize.max,
@@ -51,7 +51,7 @@ class AboutMe extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * .1,
           ),
-          ProfileData
+          profileData
         ],
       ),
     );
