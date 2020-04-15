@@ -18,7 +18,8 @@ class AboutMe extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
-                image: AssetImage('images/myself.jpg'),
+                image: NetworkImage(
+                    'https://raw.githubusercontent.com/charitarthchugh/charitarthchugh/master/assets/images/myself.jpg'),
                 alignment: Alignment.center,
                 fit: BoxFit.cover)),
       );

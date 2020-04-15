@@ -51,7 +51,8 @@ class CstmDrawer extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
-                image: AssetImage('images/clipart.png'),
+                image: NetworkImage(
+                    'https://raw.githubusercontent.com/charitarthchugh/charitarthchugh/master/assets/images/clipart.png'),
                 alignment: Alignment.center,
                 fit: BoxFit.scaleDown)),
         /* ATTENTION- THIS CODE IS FOR REFERENCE ONLY,
