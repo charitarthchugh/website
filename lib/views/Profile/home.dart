@@ -40,9 +40,7 @@ class _HomeState extends State<Home> {
               : MainAxisAlignment.start,
           children: <Widget>[
             TypewriterAnimatedTextKit(
-              onTap: () {
-                print('pressed CC');
-              },
+              onTap: () {},
               //Instead of using a timer, I just added spaces
               text: [' ', ' ', 'Charitarth \nChugh_'],
               totalRepeatCount: 1,
