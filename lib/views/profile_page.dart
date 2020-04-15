@@ -115,8 +115,8 @@ class _ProfilePageState extends State<ProfilePage> {
             decoration: BoxDecoration(
               color: Color.fromRGBO(7, 13, 47, 1),
               image: DecorationImage(
-                  image: AssetImage(
-                'images/stars-bg.png',
+                  image: NetworkImage(
+                'https://raw.githubusercontent.com/charitarthchugh/charitarthchugh/master/assets/images/stars-bg.png',
               )),
             )));
   }
