@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:charitarthchugh/components/responsive_widget.dart';
 
 class AboutMe extends StatelessWidget {
+
+  AboutMe({Key key,}) : super(key: key);
   profileImage(context) => AnimatedContainer(
         duration: Duration(seconds: 1),
         height: ResponsiveWidget.isSmallScreen(context)
             ? MediaQuery.of(context).size.height * .25
-            : MediaQuery.of(context).size.width * .20,
+            : MediaQuery.of(context).size.width * .23,
         width: ResponsiveWidget.isSmallScreen(context)
             ? MediaQuery.of(context).size.height * .25
-            : MediaQuery.of(context).size.width * .20,
+            : MediaQuery.of(context).size.width * .23,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(

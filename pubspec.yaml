@@ -25,7 +25,6 @@ dependencies:
   url_launcher_web: ^0.1.1+1
   animated_text_kit: ^2.0.0
   font_awesome_flutter: ^8.8.1
-  rxdart: ^0.24.0
   flutter:
     sdk: flutter
 
@@ -39,6 +38,7 @@ flutter:
      - assets/images/myself.jpg
      - assets/images/planet-orange.png
      - assets/images/stars-bg.png
+     - assets/images/clipart.png
 
   # Add Open Sans
   fonts:

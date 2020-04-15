@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //Internal Packages
-import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
+import 'package:charitarthchugh/components/responsive_widget.dart';
 
 class Social extends StatefulWidget {
-  Social({Key key, this.title}) : super(key: key);
-  final String title;
+
+  Social({Key key,}) : super(key: key);
 
   @override
   _SocialState createState() => _SocialState();
@@ -50,7 +50,7 @@ class _SocialState extends State<Social> {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidgetStateful.isSmallScreen(context)
+    return ResponsiveWidget.isSmallScreen(context)
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -66,14 +66,15 @@ class _SocialState extends State<Social> {
                   Flexible(
                     flex: 2,
                     child: Text(
-                      'Copyright Charitarth Chugh under GPLv3, unless otherwise noted.',
+                      ' Charitarth Chugh. Made with ',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 15,
                       ),
                       softWrap: true,
                     ),
-                  )
+                  ),
+                  Flexible(flex: 2, child: Icon(FontAwesomeIcons.heart,color: Colors.white70,))
                 ],
               )
             ],
@@ -91,13 +92,14 @@ class _SocialState extends State<Social> {
                 children: <Widget>[
                   Icon(FontAwesomeIcons.copyright,color: Colors.white70,),
                   Text(
-                    'Copyright Charitarth Chugh under GPLv3, unless otherwise noted.',
+                    ' Charitarth Chugh. Made with ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
                     ),
                     softWrap: true,
-                  )
+                  ),
+                  Icon(FontAwesomeIcons.heart,color: Colors.white70,)
                 ],
               )
             ],

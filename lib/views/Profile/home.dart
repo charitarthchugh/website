@@ -6,7 +6,9 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
 
 class Home extends StatefulWidget {
-  Home({Key key}) : super(key: key);
+  Home({
+    Key key,
+  }) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();

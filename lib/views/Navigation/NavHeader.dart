@@ -1,10 +1,25 @@
+/*
+* ATTENTION- THIS CODE IS FOR REFERENCE ONLY,
+* not going to be used in actual web site
+* due to the relative complexity in getting the buttons to work
+* The intention was that the buttons would allow the user scroll to that
+* section of the page
+*/
+
+
+
+
 //External Packages
+import 'package:charitarthchugh/views/profile_page.dart';
 import 'package:flutter/material.dart';
 
 //Internal Packages
 import 'package:charitarthchugh/components/responsive_widget.dart';
+import '../Profile/about_me.dart';
+import '../Profile/social.dart';
 
 class NavHeader extends StatelessWidget {
+  NavHeader({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -21,7 +36,7 @@ class NavHeader extends StatelessWidget {
                   onPressed: () {
                     print('pressed About');
                   },
-                  text: 'About',
+                  text: 'About Me',
                 ),
                 SizedBox(
                   width: 30,
@@ -31,9 +46,9 @@ class NavHeader extends StatelessWidget {
                 ),*/
                 _NavButton(
                   onPressed: () {
-                    print('pressed Resume');
+                    print('pressed Social');
                   },
-                  text: 'Resume',
+                  text: 'Social',
                 ),
                 SizedBox(
                   width: 30,

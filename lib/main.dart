@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 //Internal Packages
-import 'views/lpage.dart';
+import 'views/profile_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,7 +30,7 @@ class MyAppState extends State<MyApp>{
         primaryColorDark: Color.fromRGBO(7,13, 47, 1),
         accentColor:Color.fromRGBO(247,174, 110, 1),
       ),
-      home: LPage()
+      home: ProfilePage()
     );
   }
 }

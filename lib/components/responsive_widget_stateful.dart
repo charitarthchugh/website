@@ -4,7 +4,12 @@ class ResponsiveWidgetStateful extends StatefulWidget {
   final Widget largeScreen;
   final Widget mediumScreen;
   final Widget smallScreen;
-  ResponsiveWidgetStateful({Key key,@required this.largeScreen, this.mediumScreen, this.smallScreen}) : super(key: key);
+  ResponsiveWidgetStateful(
+      {Key key,
+      @required this.largeScreen,
+      this.mediumScreen,
+      this.smallScreen})
+      : super(key: key);
   static bool isSmallScreen(BuildContext context) {
     return MediaQuery.of(context).size.width < 800;
   }
@@ -20,7 +25,11 @@ class ResponsiveWidgetStateful extends StatefulWidget {
 
   @override
   _ResponsiveWidgetStatefulState createState() =>
-      _ResponsiveWidgetStatefulState(key: key,largeScreen: largeScreen,mediumScreen: mediumScreen,smallScreen: smallScreen);
+      _ResponsiveWidgetStatefulState(
+          key: key,
+          largeScreen: largeScreen,
+          mediumScreen: mediumScreen,
+          smallScreen: smallScreen);
 }
 
 class _ResponsiveWidgetStatefulState extends State<ResponsiveWidgetStateful> {
@@ -28,12 +37,13 @@ class _ResponsiveWidgetStatefulState extends State<ResponsiveWidgetStateful> {
   final Widget mediumScreen;
   final Widget smallScreen;
 
-  _ResponsiveWidgetStatefulState({key: Key,this.largeScreen, this.mediumScreen, this.smallScreen});
+  _ResponsiveWidgetStatefulState(
+      {key: Key, this.largeScreen, this.mediumScreen, this.smallScreen});
 
   @override
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
+    return new LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth > 1200) {
         return largeScreen;
       } else if (constraints.maxWidth < 1200 && constraints.maxWidth > 800) {
