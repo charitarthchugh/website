@@ -38,11 +38,11 @@ flutter_icons:
   image_path: "assets/images/favicon.png"
 # The following section is specific to Flutter.
 flutter:
-  assets:
-    - assets/images/myself.jpg
-    - assets/images/planet-orange.png
-    - assets/images/stars-bg.png
-    - assets/images/clipart.png
+  #assets:
+    #- assets/images/myself2.jpg
+    #- assets/images/planet-orange.png
+    #- assets/images/stars-bg.png
+    #- assets/images/clipart.png
 
   # Add Open Sans
   fonts:
