@@ -1,6 +1,5 @@
 # charitarthchugh
-<!--I need to update this later --> 
-My personal website written in Flutter/Dart
+My personal website written in Flutter/Dart-[charitarth.codes](charitarth.codes "Click- here")
 ## Licence
 * #### Feel free use this code as a TEMPLATE
 The code itself is licenced under GPLv3, but all assets/images are copyright me/ their original owners
