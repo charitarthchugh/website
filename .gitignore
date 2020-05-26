@@ -117,4 +117,5 @@ charitarthchugh.iml
 firebase.json
 .firebaserc
 *.log
+*.xml
 generated_plugin_registrant.dart
