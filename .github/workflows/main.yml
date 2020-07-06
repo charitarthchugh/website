@@ -21,6 +21,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - name: Super-Linter
+      uses: github/super-linter@v3.2.0
     - name: setup-flutter
       uses: takuyaohashi/setup-flutter@v1
       with: 
