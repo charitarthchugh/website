@@ -4,7 +4,7 @@ My personal website written in Flutter/Dart-[charitarth.codes](charitarth.codes 
 * #### Feel free use this code as a TEMPLATE
 The code itself is licenced under GPLv3, but all assets/images are copyright me/ their original owners
 ## Credits
-* (https://www.clipartmax.com/middle/m2i8i8m2H7H7A0H7_spaceship-clipart-yellow-transparent-background-spaceship-png/)
+* [ClipartMax](https://www.clipartmax.com/middle/m2i8i8m2H7H7A0H7_spaceship-clipart-yellow-transparent-background-spaceship-png/)
 * [System 76](system76.com/pop/ "system76.com") for some assets
 * [Flutter-rus](github.com/charitarthhchugh "github.com") for the icon
 ## Sidenote
