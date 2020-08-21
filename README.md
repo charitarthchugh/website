@@ -3,9 +3,9 @@
 <img src="https://github-readme-stats.vercel.app/api?username=charitarthchugh&&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=191919">
 <a href="https://sourcerer.io/charitarthchugh"><img src="https://sourcerer.io/icons/logo-sharing.svg"height="48px" alt="Sourcerer"></a>
 
-[![GitHub stars](https://img.shields.io/github/stars/Naereen/StrapDown.js.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Naereen/StrapDown.js/stargazers/) [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues/) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/pull/)
+[![GitHub issues](https://img.shields.io/github/issues/charitarthchugh/charitarthchugh.svg)](https://GitHub.com/charitarthchugh/charitarthchugh/issues/) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/charitarthchugh/charitarthchugh.svg)](https://GitHub.com/charitarthchugh/charitarthchugh/pull/)
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/charitarthchugh/charitarthchugh/graphs/commit-activity)   [![GitHub license](https://img.shields.io/github/license/charitarthchugh/charitarthchugh)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) [![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) 
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/charitarthchugh/charitarthchugh/graphs/commit-activity)   [![GitHub license](https://img.shields.io/github/license/charitarthchugh/charitarthchugh)](https://github.com/charitarthchugh/charitarthchugh/blob/master/LICENSE) 
 
 ## License
 
