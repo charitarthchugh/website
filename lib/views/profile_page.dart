@@ -15,6 +15,7 @@ import 'package:charitarthchugh/components/responsive_widget.dart';
 import 'package:charitarthchugh/views/Profile/home.dart';
 import 'Profile/about_me.dart';
 import './Profile/social.dart';
+import 'Profile/home2.dart';
 
 final GlobalKey about = GlobalKey();
 final GlobalKey social = GlobalKey();
@@ -87,7 +88,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ):SizedBox(
                       height: MediaQuery.of(context).size.height * .3,
                     ),
-                    Home(),
+                    Home2(),
                     ResponsiveWidget.isSmallScreen(context)
                         ? SizedBox(
                       height: MediaQuery.of(context).size.height * .4,
