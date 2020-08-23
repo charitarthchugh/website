@@ -25,11 +25,13 @@ dependencies:
   url_launcher_web: ^0.1.1+1
   animated_text_kit: ^2.0.0
   font_awesome_flutter: ^8.8.1
+  google_fonts: ^1.1.0
+  firebase_storage: ^4.0.0
   flutter:
     sdk: flutter
 
+
 dev_dependencies:
-  flutter_launcher_icons: "^0.7.3"
   flutter_test:
     sdk: flutter
 flutter_icons:
@@ -38,19 +40,9 @@ flutter_icons:
   image_path: "assets/images/favicon.png"
 # The following section is specific to Flutter.
 flutter:
-  #assets:
-    #- assets/images/myself.jpg
-    #- assets/images/planet-orange.png
-    #- assets/images/stars-bg.png
-    #- assets/images/clipart.png
+  assets:
+    - assets/images/
 
-  # Add Open Sans
-  fonts:
-    - family: OpenSans
-      fonts:
-        - asset: assets/fonts/OpenSans-Regular.ttf
-        - asset: assets/fonts/OpenSans-Bold.ttf
-          #style: Bold
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
