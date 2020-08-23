@@ -11,7 +11,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 //Internal packages
-import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
 import 'package:charitarthchugh/components/responsive_widget.dart';
 import 'package:charitarthchugh/views/Navigation/cstm_drawer.dart';
 import 'package:charitarthchugh/views/Profile/home.dart';
