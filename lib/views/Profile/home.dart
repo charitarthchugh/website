@@ -80,7 +80,6 @@ class _HomeState extends State<Home> {
           decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                  image: NetworkImage('https://raw.githubusercontent.com/charitarthchugh/charitarthchugh/master/assets/images/planet-orange.png'),
                   image: NetworkImage(
                       'https://raw.githubusercontent.com/charitarthchugh/website/master/assets/images/planet-orange.png'),
                   alignment: Alignment.center,
