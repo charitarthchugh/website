@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 //Internal packages
 import 'package:charitarthchugh/components/responsive_widget_stateful.dart';
 import 'package:charitarthchugh/components/responsive_widget.dart';
-import 'package:charitarthchugh/views/Navigation/NavHeader.dart';
 import 'package:charitarthchugh/views/Navigation/cstm_drawer.dart';
 import 'package:charitarthchugh/views/Profile/home.dart';
 import 'Profile/about_me.dart';
@@ -76,9 +75,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 elevation: 0,
                 backgroundColor: Color.fromRGBO(7, 13, 47, 1),
               )
-            : null,
-        drawer: ResponsiveWidget.isSmallScreen(context)
-            ? CstmDrawer()
             : null, //No Drawer for large screens ,
         body: new Container(
             width: MediaQuery.of(context).size.width,
