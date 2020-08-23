@@ -1,11 +1,18 @@
 //External Packages
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 //Internal Packages
 import 'views/profile_page.dart';
 
 void main() {
+  LicenseRegistry.addLicense(() async* {
+    final unsplashLicense =
+        "Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use photos from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash. This license does not include the right to compile photos from Unsplash to replicate a similar or competing service.";
+    yield LicenseEntryWithLineBreaks(["Photo by Mike Yukhtenko on Unsplash. https://unsplash.com/photos/a2kD4b0KK4s"], unsplashLicense);
+  });
   runApp(MyApp());
 }
 
