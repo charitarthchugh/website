@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 
 //Internal packages
 import 'package:charitarthchugh/components/responsive_widget.dart';
-import 'package:charitarthchugh/views/Navigation/cstm_drawer.dart';
 import 'package:charitarthchugh/views/Profile/home.dart';
 import 'Profile/about_me.dart';
 import './Profile/social.dart';
@@ -111,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
               color: Color.fromRGBO(7, 13, 47, 1),
               image: DecorationImage(
                   image: NetworkImage(
-                'https://raw.githubusercontent.com/charitarthchugh/charitarthchugh/master/assets/images/stars-bg.png',
+                'https://raw.githubusercontent.com/charitarthchugh/website/master/assets/images/stars-bg.png',
               )),
             )));
   }
