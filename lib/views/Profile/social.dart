@@ -17,8 +17,6 @@ class Social extends StatefulWidget {
 }
 
 class _SocialState extends State<Social> {
-  Future<void> _launched;
-
   Future<void> _launchInBrowser(String url) async {
     if (await canLaunch(url)) {
       await launch(
