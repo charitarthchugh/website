@@ -21,12 +21,11 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  url_launcher: ^5.4.2
-  url_launcher_web: ^0.1.1+1
-  animated_text_kit: ^2.0.0
+  url_launcher: ^5.5.0
+  url_launcher_web: ^0.1.2+1
+  animated_text_kit: ^2.2.0
   font_awesome_flutter: ^8.8.1
   google_fonts: ^1.1.0
-  firebase_storage: ^4.0.0
   flutter:
     sdk: flutter
 
@@ -42,6 +41,7 @@ flutter_icons:
 flutter:
   assets:
     - assets/images/
+    - assets/licenses/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
