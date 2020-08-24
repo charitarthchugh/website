@@ -48,6 +48,7 @@ class MyAppState extends State<MyApp> {
           primaryColorDark: Color.fromRGBO(7, 13, 47, 1),
           accentColor: Color.fromRGBO(247, 174, 110, 1),
         ),
+        darkTheme: ThemeData(
           textTheme: GoogleFonts.openSansTextTheme(),
           primaryColorDark: Color.fromRGBO(7, 13, 47, 1),
           accentColor: Color.fromRGBO(247, 174, 110, 1),
