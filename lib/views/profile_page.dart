@@ -82,12 +82,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    ResponsiveWidget.isSmallScreen(context)
-                        ? SizedBox(
-                      height: MediaQuery.of(context).size.height * .13,
-                    ):SizedBox(
-                      height: MediaQuery.of(context).size.height * .3,
-                    ),
                     Home2(),
                     ResponsiveWidget.isSmallScreen(context)
                         ? SizedBox(
