@@ -16,7 +16,7 @@ class Home2 extends StatelessWidget {
     final theme = Provider.of<ThemeChanger>(context);
     String _image =
         theme.getMode() == ThemeMode.dark ? _imageIdDark : _imageIdLight;
-   /* var ratio = ResponsiveWidget.getScreenWidth(context) /
+    /* var ratio = ResponsiveWidget.getScreenWidth(context) /
         ResponsiveWidget.getScreenHeight(context);*/
     String _imageURL = "https://source.unsplash.com/" +
         _image +
@@ -54,10 +54,14 @@ class Home2 extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: RawMaterialButton(
-              onPressed: (){
+              onPressed: () {
                 theme.toggle();
               },
-              child: Icon(FontAwesomeIcons.adjust),
+              child: Icon(
+                theme.getMode() == ThemeMode.dark
+                    ? FontAwesomeIcons.solidSun
+                    : FontAwesomeIcons.solidMoon,
+              ),
               padding: EdgeInsets.all(10.0),
               shape: CircleBorder(),
             ),
