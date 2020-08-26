@@ -4,35 +4,37 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class Home2 extends StatelessWidget {
   final String _imageIdDark = "a2kD4b0KK4s";
   final String _imageIdLight = "zuueig1w8WI";
-
-  // final String _collectionId = "3383552";
 
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     String _image =
         theme.getMode() == ThemeMode.dark ? _imageIdDark : _imageIdLight;
-    /* var ratio = ResponsiveWidget.getScreenWidth(context) /
-        ResponsiveWidget.getScreenHeight(context);*/
+
     String _imageURL = "https://source.unsplash.com/" +
         _image +
         "/" +
-        ResponsiveWidget.getScreenWidth(context).toString() +
+        ResponsiveWidget.getScreenWidth(context).toInt().toString() +
         "x" +
-        ResponsiveWidget.getScreenHeight(context).toString();
+        ResponsiveWidget.getScreenHeight(context).toInt().toString();
     return Container(
       height: ResponsiveWidget.getScreenHeight(context),
       width: ResponsiveWidget.getScreenWidth(context),
       child: Stack(
         children: [
-          Image(
-            image: NetworkImage(_imageURL),
+          CachedNetworkImage(
+            imageUrl: _imageURL,
+            useOldImageOnUrlChange: true,
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                CircularProgressIndicator(value: downloadProgress.progress),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
-          Center(
+          Align(
             child: RichText(
               text: TextSpan(
                   text: "Charitarth",
@@ -40,12 +42,14 @@ class Home2 extends StatelessWidget {
                     TextSpan(
                         text: " Chugh",
                         style: GoogleFonts.notoSans(
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white70)),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white70,
+                          wordSpacing: 2,
+                        )),
                     //   TextSpan(text: ratio.toString())
                   ],
                   style: GoogleFonts.notoSans(
-                      fontSize: ResponsiveWidget.getScreenWidth(context) / 25,
+                      fontSize: ResponsiveWidget.getScreenHeight(context) / 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.white)),
               softWrap: false,
@@ -61,6 +65,9 @@ class Home2 extends StatelessWidget {
                 theme.getMode() == ThemeMode.dark
                     ? FontAwesomeIcons.solidSun
                     : FontAwesomeIcons.solidMoon,
+                color: theme.getMode() == ThemeMode.dark
+                    ? Colors.white70
+                    : Colors.black,
               ),
               padding: EdgeInsets.all(10.0),
               shape: CircleBorder(),
