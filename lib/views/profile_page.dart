@@ -20,61 +20,11 @@ import 'Profile/home2.dart';
 final GlobalKey about = GlobalKey();
 final GlobalKey social = GlobalKey();
 
-class ProfilePage extends StatefulWidget {
-  @override
-  _ProfilePageState createState() => new _ProfilePageState();
-/*Map<Widget, GlobalKey<State<StatefulWidget>>> mainWidgetKeys = {
-    AboutMe(): about,
-    Social(): social,
-  };*/
-
-/*void animateToWidget(Widget w) {
-    if (mainWidgetKeys.containsKey(w)) {
-      RenderBox box = mainWidgetKeys[w].currentContext.findRenderObject();
-      Offset offset = box.localToGlobal(Offset.zero);
-      double animationHeight = _controller.offset +
-          offset.dy -
-          MediaQueryData.fromWindow(window).padding.top -
-          56.0;
-      _controller.animateTo(animationHeight,
-          duration: Duration(milliseconds: 500), curve: Curves.decelerate);
-    }
-  }*/
-}
-
-final _controller = ScrollController();
-
-/*void animateToWidget(Widget w) {
-  if (mainWidgetKeys.containsKey(w)) {
-  RenderBox box=mainWidgetKeys[w].currentContext.findRenderObject();
-  Offset offset=box.localToGlobal(Offset.zero);
-  double animationHeight = _controller.offset + offset.dy - MediaQueryData.fromWindow(window).padding.top - 56.0;
-  _controller.animateTo(animationHeight, duration: Duration(milliseconds: 500), curve: Curves.decelerate);
-  }
-}*/
-
-class _ProfilePageState extends State<ProfilePage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  _ProfilePageState({key: Key});
+class ProfilePage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: ResponsiveWidget.isSmallScreen(context)
-            ? AppBar(
-                elevation: 0,
-                backgroundColor: Color.fromRGBO(7, 13, 47, 1),
-              )
-            : null, //No Drawer for large screens ,
         body: new Container(
             width: MediaQuery.of(context).size.width,
             child: ResponsiveWidget(
@@ -85,29 +35,30 @@ class _ProfilePageState extends State<ProfilePage> {
                     Home2(),
                     ResponsiveWidget.isSmallScreen(context)
                         ? SizedBox(
-                      height: MediaQuery.of(context).size.height * .4,
-                    ):SizedBox(
-                      height: MediaQuery.of(context).size.height * .6,
-                    ),
+                            height: ResponsiveWidget.getScreenHeight(context) * .4,
+                          )
+                        : SizedBox(
+                            height: ResponsiveWidget.getScreenHeight(context) * .6,
+                          ),
                     AboutMe(),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * .2,
+                      height: ResponsiveWidget.getScreenHeight(context) * .2,
                     ),
                     Social(),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * .1,
+                      height: ResponsiveWidget.getScreenHeight(context)* .1,
                     ),
                   ],
                 ),
               ]),
             ),
-            decoration: BoxDecoration(
+            /*decoration: BoxDecoration(
               color: Color.fromRGBO(7, 13, 47, 1),
               image: DecorationImage(
                   image: NetworkImage(
                 'https://raw.githubusercontent.com/charitarthchugh/website/master/assets/images/stars-bg.png',
               )),
-            )));
+            )*/));
   }
 }
 
