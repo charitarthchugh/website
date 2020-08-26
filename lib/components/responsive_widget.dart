@@ -12,24 +12,24 @@ class ResponsiveWidget extends StatelessWidget {
       this.mediumScreen,
       this.smallScreen})
       : super(key: key);
-  static double getScreenWidth(BuildContext context){
-    return MediaQuery.of(context).size.width;
-  }
-  static double getScreenHeight(BuildContext context){
-    return MediaQuery.of(context).size.height;
-  }
-  static bool isSmallScreen(BuildContext context) {
-    return getScreenWidth(context)< 800;
-  }
 
-  static bool isLargeScreen(BuildContext context) {
-    return getScreenWidth(context) > 800;
-  }
+  static double getScreenWidth(BuildContext context) =>
+      MediaQuery.of(context).size.width;
 
-  static bool isMediumScreen(BuildContext context) {
-    return getScreenWidth(context) > 800 &&
-        getScreenWidth(context) < 1200;
-  }
+  static double getScreenHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height;
+
+  static bool isSmallScreen(BuildContext context) =>
+      getScreenWidth(context) < 800;
+
+  static bool isLargeScreen(BuildContext context) =>
+      getScreenWidth(context) > 800;
+
+  static bool isMediumScreen(BuildContext context) =>
+      getScreenWidth(context) > 800 && getScreenWidth(context) < 1200;
+
+  double ratio(BuildContext context) =>
+      getScreenWidth(context) / getScreenHeight(context);
 
   @override
   @override
