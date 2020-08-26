@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:charitarthchugh/components/responsive_widget.dart';
 import 'package:charitarthchugh/components/theme.dart';
 import 'package:flutter/material.dart';
@@ -7,36 +8,48 @@ import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class Home2 extends StatelessWidget {
-  final String _imageIdDark = "a2kD4b0KK4s";
-  final String _imageIdLight = "zuueig1w8WI";
-
   @override
   Widget build(BuildContext context) {
-    final theme = Provider.of<ThemeChanger>(context);
-    String _image =
-        theme.getMode() == ThemeMode.dark ? _imageIdDark : _imageIdLight;
-
-    String _imageURL = "https://source.unsplash.com/" +
-        _image +
-        "/" +
+    final String _imageURIDark = "https://source.unsplash.com/a2kD4b0KK4s/" +
         ResponsiveWidget.getScreenWidth(context).toInt().toString() +
         "x" +
         ResponsiveWidget.getScreenHeight(context).toInt().toString();
+    final String _imageURILight = "https://source.unsplash.com/zuueig1w8WI/" +
+        ResponsiveWidget.getScreenWidth(context).toInt().toString() +
+        "x" +
+        ResponsiveWidget.getScreenHeight(context).toInt().toString();
+    final theme = Provider.of<ThemeChanger>(context);
     return Container(
       height: ResponsiveWidget.getScreenHeight(context),
       width: ResponsiveWidget.getScreenWidth(context),
       child: Stack(
         children: [
-          CachedNetworkImage(
-            imageUrl: _imageURL,
-            useOldImageOnUrlChange: true,
-            progressIndicatorBuilder: (context, url, downloadProgress) =>
-                CircularProgressIndicator(value: downloadProgress.progress),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+          AnimatedCrossFade(
+            duration: Duration(seconds: 1),
+            crossFadeState: theme.getMode() == ThemeMode.dark
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            firstChild: CachedNetworkImage(
+              imageUrl: _imageURILight,
+              useOldImageOnUrlChange: true,
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CircularProgressIndicator(
+                value: downloadProgress.progress,
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
+            secondChild: CachedNetworkImage(
+              imageUrl: _imageURIDark,
+              useOldImageOnUrlChange: true,
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CircularProgressIndicator(value: downloadProgress.progress),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
           ),
           Align(
-            child: RichText(
-              text: TextSpan(
+            alignment: Alignment.center,
+            child: AutoSizeText.rich(
+              TextSpan(
                   text: "Charitarth",
                   children: [
                     TextSpan(
@@ -44,15 +57,16 @@ class Home2 extends StatelessWidget {
                         style: GoogleFonts.notoSans(
                           fontWeight: FontWeight.bold,
                           color: Colors.white70,
-                          wordSpacing: 2,
                         )),
                     //   TextSpan(text: ratio.toString())
                   ],
                   style: GoogleFonts.notoSans(
-                      fontSize: ResponsiveWidget.getScreenHeight(context) / 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white)),
-              softWrap: false,
+                      fontWeight: FontWeight.bold, color: Colors.white)),
+              maxLines: 2,
+              softWrap: true,
+              minFontSize: 40,
+              stepGranularity: 8,
+              textAlign: TextAlign.center,
             ),
           ),
           Align(
@@ -61,13 +75,27 @@ class Home2 extends StatelessWidget {
               onPressed: () {
                 theme.toggle();
               },
-              child: Icon(
-                theme.getMode() == ThemeMode.dark
-                    ? FontAwesomeIcons.solidSun
-                    : FontAwesomeIcons.solidMoon,
-                color: theme.getMode() == ThemeMode.dark
-                    ? Colors.white70
-                    : Colors.black,
+              child: AnimatedCrossFade(
+                duration: Duration(seconds: 1),
+                crossFadeState: theme.getMode() == ThemeMode.dark
+                    ? CrossFadeState.showSecond
+                    : CrossFadeState.showFirst,
+                firstChild: Tooltip(
+                  showDuration: Duration(seconds: 5),
+                  preferBelow: false,
+                  message: "Into the void",
+                  child: Icon(
+                    FontAwesomeIcons.solidMoon,
+                    color: Colors.black,
+                  ),
+                ),
+                secondChild: Tooltip(
+                  message: "Into the light",
+                  child: Icon(
+                    FontAwesomeIcons.solidSun,
+                    color: Colors.white70,
+                  ),
+                ),
               ),
               padding: EdgeInsets.all(10.0),
               shape: CircleBorder(),
