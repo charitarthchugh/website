@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ThemeChanger with ChangeNotifier {
   ThemeMode _mode = ThemeMode.system;
@@ -13,13 +14,23 @@ class ThemeChanger with ChangeNotifier {
   toggle() {
     if (_mode == ThemeMode.dark) {
       setMode(ThemeMode.light);
-      print(_mode);
     } else {
       setMode(ThemeMode.dark);
-      print(_mode);
     }
   }
 
-  final ThemeData dark = ThemeData.dark();
-  final ThemeData light = ThemeData.light();
+  ThemeData dark(BuildContext context){
+    return ThemeData();
+  }
+
+  ThemeData light(BuildContext context) {
+    return ThemeData(
+      brightness: Brightness.light,
+      textTheme: TextTheme(
+          headline1: GoogleFonts.notoSans(
+
+          )
+      ),
+    );
+  }
 }

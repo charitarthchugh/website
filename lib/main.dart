@@ -48,8 +48,8 @@ class MaterialAppWithTheme extends StatelessWidget {
         title: 'Charitarth Chugh',
         debugShowCheckedModeBanner: false,
         themeMode: theme.getMode(),
-        theme:theme.light,
-        darkTheme: theme.dark,
+        theme:theme.light(context),
+        darkTheme: theme.dark(context),
         home: ProfilePage());
   }
 }
