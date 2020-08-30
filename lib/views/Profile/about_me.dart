@@ -18,7 +18,6 @@ class AboutMe extends StatelessWidget {
             ? MediaQuery.of(context).size.height * .25
             : MediaQuery.of(context).size.width * .23,
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
             image: DecorationImage(
                 image: CachedNetworkImageProvider(
                     'https://raw.githubusercontent.com/charitarthchugh/website/master/assets/images/myself.jpg'),
