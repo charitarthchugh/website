@@ -1,6 +1,6 @@
 {
     
     "aggressiveCompression": "true", // true|false
-    "compressWiki": "true", // true|false
+  
     "minKBReduced": 500 // set reduction threshold (default to 10)
 }
