@@ -1,12 +1,14 @@
 //External Dependencies
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 //Internal Dependencies
 import 'package:charitarthchugh/components/responsive_widget.dart';
 
 class AboutMe extends StatelessWidget {
-
-  AboutMe({Key key,}) : super(key: key);
+  AboutMe({
+    Key key,
+  }) : super(key: key);
   profileImage(context) => AnimatedContainer(
         duration: Duration(seconds: 1),
         height: ResponsiveWidget.isSmallScreen(context)
@@ -16,10 +18,9 @@ class AboutMe extends StatelessWidget {
             ? MediaQuery.of(context).size.height * .25
             : MediaQuery.of(context).size.width * .23,
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
             image: DecorationImage(
-                image: NetworkImage(
-                    'https://raw.githubusercontent.com/charitarthchugh/charitarthchugh/master/assets/images/myself.jpg'),
+                image: CachedNetworkImageProvider(
+                    'https://raw.githubusercontent.com/charitarthchugh/website/master/assets/images/myself.jpg'),
                 alignment: Alignment.center,
                 fit: BoxFit.cover)),
       );
@@ -31,7 +32,7 @@ class AboutMe extends StatelessWidget {
         softWrap: true,
         textScaleFactor: 1.5,
         textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white70,fontSize: 16),
+        style: TextStyle(color: Colors.white70, fontSize: 16),
       )
     ],
   );
