@@ -6,16 +6,16 @@ class ThemeChanger with ChangeNotifier {
 
   getMode() => _mode;
 
-  setMode(ThemeMode mode) {
+  _setMode(ThemeMode mode) {
     this._mode = mode;
     notifyListeners();
   }
 
   toggle() {
     if (_mode == ThemeMode.dark) {
-      setMode(ThemeMode.light);
+      _setMode(ThemeMode.light);
     } else {
-      setMode(ThemeMode.dark);
+      _setMode(ThemeMode.dark);
     }
   }
 
