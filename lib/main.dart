@@ -1,11 +1,12 @@
-import 'package:charitarthchugh/components/theme.dart';
+//@dart=2.9
+import 'package:website/components/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 //Internal Packages
-import 'views/profile_page.dart';
+import 'dom.dart';
 
 void main() {
   //Licenses
@@ -25,8 +26,7 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget{
-  
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
@@ -48,8 +48,8 @@ class MaterialAppWithTheme extends StatelessWidget {
         title: 'Charitarth Chugh',
         debugShowCheckedModeBanner: false,
         themeMode: theme.getMode(),
-        theme:theme.light(context),
+        theme: theme.light(context),
         darkTheme: theme.dark(context),
-        home: ProfilePage());
+        home: DOM());
   }
 }
