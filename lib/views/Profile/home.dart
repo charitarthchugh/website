@@ -1,122 +1,110 @@
-import 'package:charitarthchugh/components/responsive_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:website/components/responsive_widget.dart';
+import 'package:website/components/theme_changer.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-class Home extends StatefulWidget {
-  Home({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget _typewriterText = Container(
-        child: Padding(
-      padding: const EdgeInsets.all(15),
-      child: Column(children: <Widget>[
-        Row(
-          mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
-              ? MainAxisAlignment.spaceEvenly
-              : MainAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'Hi, my name is ',
-              textScaleFactor: 1.3,
-              style: TextStyle(
-                  color: Color.fromRGBO(247, 174, 110, 1), fontSize: 16),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
-              ? MainAxisAlignment.spaceEvenly
-              : MainAxisAlignment.start,
-          children: <Widget>[
-            TypewriterAnimatedTextKit(
-              onTap: () {},
-              //Instead of using a timer, I just added spaces
-              text: [' ', ' ', 'Charitarth \nChugh_'],
-              totalRepeatCount: 1,
-              textAlign: ResponsiveWidget.isSmallScreen(context)
-                  ? TextAlign.center
-                  : TextAlign.start,
-              alignment: Alignment.topLeft,
-              speed: Duration(milliseconds: 100),
-              displayFullTextOnTap: false,
-              textStyle: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
-              ),
-            ),
-          ],
-        )
-      ]),
-    ));
-    Widget smallScreen = Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        _typewriterText,
-        SizedBox(
-          height: MediaQuery.of(context).size.height * .1,
-        ),
-        AnimatedContainer(
-          duration: Duration(seconds: 1),
-          height: ResponsiveWidget.isSmallScreen(context)
-              ? MediaQuery.of(context).size.height * .25
-              : MediaQuery.of(context).size.width * .25,
-          width: ResponsiveWidget.isSmallScreen(context)
-              ? MediaQuery.of(context).size.height * .25
-              : MediaQuery.of(context).size.width * .25,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: NetworkImage(
-                      'https://raw.githubusercontent.com/charitarthchugh/website/master/assets/images/planet-orange.png'),
-                  alignment: Alignment.center,
-                  fit: BoxFit.fill)),
-        )
-      ],
-    );
-    Widget largeScreen = Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Flexible(flex: 2, child: _typewriterText),
-          Flexible(
-            flex: 2,
-            child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              height: ResponsiveWidget.isSmallScreen(context)
-                  ? MediaQuery.of(context).size.height * .25
-                  : MediaQuery.of(context).size.width * .25,
-              width: ResponsiveWidget.isSmallScreen(context)
-                  ? MediaQuery.of(context).size.height * .25
-                  : MediaQuery.of(context).size.width * .25,
+    /* final String _imageURIDark = "https://source.unsplash.com/a2kD4b0KK4s/" +
+        ResponsiveWidget.getScreenWidth(context).toInt().toString() +
+        "x" +
+        ResponsiveWidget.getScreenHeight(context).toInt().toString();
+    final String _imageURILight = "https://source.unsplash.com/zuueig1w8WI/" +
+        ResponsiveWidget.getScreenWidth(context).toInt().toString() +
+        "x" +
+        ResponsiveWidget.getScreenHeight(context).toInt().toString(); */
+    final theme = Provider.of<ThemeChanger>(context);
+
+    return Container(
+      height: ResponsiveWidget.getScreenHeight(context),
+      width: ResponsiveWidget.getScreenWidth(context),
+      child: Stack(
+        children: [
+          AnimatedCrossFade(
+            duration: const Duration(milliseconds: 100),
+            crossFadeState: theme.isDark()
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            firstChild: AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
               decoration: BoxDecoration(
-                  shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: NetworkImage(
-                          'https://raw.githubusercontent.com/charitarthchugh/website/master/assets/images/planet-orange.png'),
-                      alignment: Alignment.center,
-                      fit: BoxFit.fill)),
+                      image: AssetImage("assets/images/background.webp"),
+                      fit: BoxFit.cover)),
+            ),
+            secondChild: AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/dark/background.webp"),
+                      fit: BoxFit.cover)),
             ),
           ),
-        ]);
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 1200 && constraints.maxWidth > 800) {
-        return smallScreen ?? largeScreen;
-      } else if (constraints.maxWidth > 1200) {
-        return largeScreen;
-      } else {
-        return smallScreen ?? largeScreen;
-      }
-    });
+          Align(
+            alignment: Alignment.center,
+            child: AutoSizeText.rich(
+              TextSpan(
+                  text: "Charitarth",
+                  children: [
+                    TextSpan(
+                        text: " Chugh",
+                        style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white70,
+                        )),
+                    //   TextSpan(text: ratio.toString())
+                  ],
+                  style: GoogleFonts.notoSans(
+                      fontWeight: FontWeight.bold, color: Colors.white)),
+              maxLines: 2,
+              softWrap: true,
+              minFontSize: 40,
+              stepGranularity: 8,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: RawMaterialButton(
+              onPressed: () {
+                theme.toggle();
+              },
+              child: AnimatedCrossFade(
+                duration: Duration(seconds: 1),
+                crossFadeState: theme.getMode() == ThemeMode.dark
+                    ? CrossFadeState.showSecond
+                    : CrossFadeState.showFirst,
+                firstChild: Tooltip(
+                  showDuration: Duration(seconds: 5),
+                  preferBelow: false,
+                  message: "Into the void",
+                  child: Icon(
+                    FontAwesomeIcons.solidMoon,
+                    color: Colors.black,
+                  ),
+                ),
+                secondChild: Tooltip(
+                  message: "Into the light",
+                  child: Icon(
+                    FontAwesomeIcons.solidSun,
+                    color: Colors.white70,
+                  ),
+                ),
+              ),
+              padding: EdgeInsets.all(10.0),
+              shape: CircleBorder(),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Icon(FontAwesomeIcons.chevronDown,color: Colors.white70,),
+          ),
+        ],
+      ),
+    );
   }
 }
