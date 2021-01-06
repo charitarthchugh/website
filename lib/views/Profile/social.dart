@@ -1,132 +1,75 @@
 //External Packages
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //Internal Packages
-import 'package:charitarthchugh/components/responsive_widget.dart';
+import 'package:website/components/responsive_widget.dart';
+import 'package:website/components/social_button.dart';
 
-class Social extends StatefulWidget {
-  Social({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  _SocialState createState() => _SocialState();
-}
-
-class _SocialState extends State<Social> {
-  Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-      );
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-//While there is only one link now, this is designed for easy expandability
-  Widget _socialButton(
-          {@required IconData FAicon,
-          @required String txt,
-          @required String url,
-          bool disabled}) =>
-      FlatButton.icon(
-        onPressed: () async {
-          _launchInBrowser(url);
-        },
-        icon: FaIcon(
-          FAicon,
-          color: Colors.white70,
-        ),
-        padding: EdgeInsets.all(8),
-        label: Text(
-          txt,
-          style: TextStyle(color: Colors.white, fontSize: 15),
-        ),
-        hoverColor: Color.fromRGBO(0, 0, 0, 1),
-      );
+class Social extends StatelessWidget {
+  final List<SocialButton> _buttons = [
+    SocialButton(
+        icon: FontAwesomeIcons.githubAlt,
+        url: "https://github.com/charitarthchugh/charitarthchugh"),
+    SocialButton(
+      url: "https://linkedin.com/in/charitarth",
+      icon: FontAwesomeIcons.linkedin,
+    ),
+    SocialButton(
+        url: "https://medium.com/@charitarth.chugh",
+        icon: FontAwesomeIcons.medium),
+    SocialButton(
+        url: "https://kaggle.com/charitarth",
+        icon: FontAwesomeIcons.kaggle)
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget.isSmallScreen(context)
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              _socialButton(
-                  FAicon: FontAwesomeIcons.githubAlt,
-                  txt: 'Github',
-                  url: "https://github.com/charitarthchugh/charitarthchugh"),
-              Divider(color: Colors.blueGrey),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Flexible(
-                      flex: 2,
-                      child: Icon(
-                        Icons.copyright,
-                        color: Colors.white70,
-                      )),
-                  Flexible(
-                    flex: 2,
-                    child: Text(
-                      ' Charitarth Chugh. Made with ♡ in Flutter',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                      softWrap: true,
-                    ),
-                  ),
-                ],
-              )
-            ],
+    if (ResponsiveWidget.isSmallScreen(context)) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          _buttons[0],
+          Divider(color: Colors.blueGrey),
+          _buttons[1],
+          _buttons[2],
+          _buttons[3],
+          RawMaterialButton(
+            shape: CircleBorder(),
+            child: FlutterLogo(size: 40),
+            onPressed: () => showAboutDialog(
+                context: context,
+                applicationName: "charitarth.codes",
+                applicationVersion: "2",
+                applicationIcon: Icon(FontAwesomeIcons.terminal)),
           )
-        : Row(
+        ],
+      );
+    } else {
+      return Column(
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              _socialButton(
-                  FAicon: FontAwesomeIcons.githubAlt,
-                  txt: 'Github',
-                  url: "https://github.com/charitarthchugh/"),
-              VerticalDivider(
-                thickness: 5,
-                color: Colors.white70,
-              ),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    FontAwesomeIcons.copyright,
-                    color: Colors.white70,
-                  ),
-                  Text(
-                    ' Charitarth Chugh. Made with ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                    softWrap: true,
-                  ),
-                  Icon(
-                    FontAwesomeIcons.heart,
-                    color: Colors.white70,
-                  ),
-                  Text(
-                    ' in Flutter',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                    softWrap: true,
-                  ),
-                ],
-              )
+              _buttons[0],
+              Divider(color: Colors.blueGrey),
+              _buttons[1],
+              _buttons[2],
+              _buttons[3],
             ],
-          );
+          ),
+          RawMaterialButton(
+            shape: CircleBorder(),
+            padding: EdgeInsets.all(8),
+            child: FlutterLogo(size: 40),
+            onPressed: () => showAboutDialog(
+                context: context,
+                applicationName: "charitarth.codes",
+                applicationVersion: "2",
+                applicationIcon: const Icon(FontAwesomeIcons.terminal)),
+          )
+        ],
+      );
+    }
   }
 }
