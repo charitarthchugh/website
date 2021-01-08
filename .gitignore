@@ -112,13 +112,7 @@ website.iml
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
-### Project Specific
-.firebase/
-firebase.json
-.firebaserc
-*.log
-*.xml
-generated_plugin_registrant.dart
+
 ### Windows template
 # Windows thumbnail cache files
 Thumbs.db
@@ -285,3 +279,7 @@ tags
 # Persistent undo
 [._]*.un~
 
+### Project Specific
+*.log
+*.xml
+generated_plugin_registrant.dart
