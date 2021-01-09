@@ -8,7 +8,9 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 
 //Internal Packages
 import 'dom.dart';
+
 FirebaseAnalytics analytics;
+
 void main() {
   //Licenses
   //OFL for Google Fonts
@@ -24,7 +26,8 @@ void main() {
       "Photo by Mike Yukhtenko on Unsplash. https://unsplash.com/photos/a2kD4b0KK4s"
     ], unsplashLicense);
   });
-  analytics=FirebaseAnalytics();
+  analytics = FirebaseAnalytics();
+
   runApp(MyApp());
 }
 
