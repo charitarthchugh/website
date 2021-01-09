@@ -1,7 +1,7 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
 
-//TAKEN FROM https://www.nordtheme.com/docs/colors-and-palettes
+//TAKEN FROM [Documentation](https://www.nordtheme.com/docs/colors-and-palettes)
 // All credit goes toward them.
 
 /// Nord consists of four named color palettes providing different syntactic
@@ -17,14 +17,20 @@ import 'package:flutter/material.dart';
 /// All colors are numbered from nord0 to nord15 where each palette contains
 /// a different amount of colors. The naming convention preserves the
 /// compatibility for terminal color schemes and allows an uncomplicated use as base for such.
+/// 
+/// [Documentation](https://www.nordtheme.com/docs/colors-and-palettes)
 class Nord {
   Nord();
 }
 
 /// **Polar Night** is made up of four darker colors that are commonly used for
 /// base elements like backgrounds or text color in *bright ambiance* designs.
+///
+/// [Documentation](https://www.nordtheme.com/docs/colors-and-palettes)
 
 class PolarNight extends Nord {
+  PolarNight._();
+
   /// **The origin color or the *Polar Night* palette.**
   ///
   /// For *dark ambiance* designs, it is used for background and area coloring
@@ -37,9 +43,11 @@ class PolarNight extends Nord {
   /// It is rarely used for passive UI elements like borders, but might be
   /// possible to achieve a higher contrast and better visual distinction
   /// (harder/not flat) between larger components.
+  ///
+  ///[Documentation](https://www.nordtheme.com/docs/colors-and-palettes)
   static const Color nord0 = const Color(0xff2e3440);
 
-  ///** A brighter shade color based on [nord0] .**
+  /// ** A brighter shade color based on [nord0].**
   ///
   /// For *dark ambiance* designs it is used for elevated, more prominent or
   /// focused UI elements like:
@@ -56,15 +64,19 @@ class PolarNight extends Nord {
   /// text elements that do not need so much visual attention.
   /// Other use cases are also state animations like a more brighter text color
   /// when a button is hovered, active or focused.
+  ///
+  /// [Documentation](https://www.nordtheme.com/docs/colors-and-palettes)
   static const Color nord1 = const Color(0xff3b4252);
 
-  ///**An even more brighter shade color of `[nord0]`.**
+  ///**An even more brighter shade color of [nord0].**
   ///
   /// For *dark ambiance designs*, it is used to colorize the currently
   /// active
   /// text editor line as well as selection- and text highlighting color.
-  /// For both bright & dark ambiance designs it can also be used as an
+  /// For both *bright & dark ambiance* designs it can also be used as an
   /// brighter variant for the same target elements like [nord1].
+  ///
+  /// [Documentation](https://www.nordtheme.com/docs/colors-and-palettes)
   static const Color nord2 = const Color(0xff434c5e);
 
   ///** The brightest shade color based on `[nord0]`.**
@@ -75,7 +87,10 @@ class PolarNight extends Nord {
   /// invisible/non-printable characters.
   ///
   /// For bright ambiance designs, it is, next to [nord1] and [nord2] as darker
-  /// variants, also used for the most subtle/inconspicuous UI text elements that do not need so much visual attention.
+  /// variants, also used for the most subtle/inconspicuous UI text elements
+  /// that do not need so much visual attention.
+  ///
+  /// [Documentation](https://www.nordtheme.com/docs/colors-and-palettes)
   static const Color nord3 = const Color(0xff4c566a);
 }
 
@@ -95,6 +110,8 @@ class PolarNight extends Nord {
 /// To apply the color purposes to the *dark to bright style* the definitions
 /// can be used in reversed order.
 class SnowStorm extends Nord {
+  SnowStorm._();
+
   /// **The origin color or the *Snow Storm* palette.**
   ///
   /// For *dark ambiance* designs, it is used for UI elements like the text
@@ -146,6 +163,8 @@ class SnowStorm extends Nord {
 /// All colors of this palette are used the same for both dark & bright
 /// ambiance designs.
 class Frost extends Nord {
+  Frost._();
+
   /// **A calm and highly contrasted color reminiscent of frozen polar water.**
   ///
   /// Used for UI elements that should, next to the primary accent color
@@ -194,6 +213,7 @@ class Frost extends Nord {
 /// All colors of this palette are used the same for both *dark & bright
 /// ambiance designs.*
 class Aurora extends Nord {
+  Aurora._();
 
   /// Used for UI elements that are rendering error states like linter
   /// markers and the highlighting of Git `diff` deletions.
