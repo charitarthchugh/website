@@ -36,7 +36,7 @@ class _SocialButtonState extends State<SocialButton> {
       },
       child: Icon(
         widget.icon,
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).iconTheme.color,
       ),
       padding: const EdgeInsets.all(8),
       shape: const CircleBorder(),

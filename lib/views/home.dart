@@ -88,7 +88,7 @@ class Home extends StatelessWidget {
                   message: "Into the light",
                   child: Icon(
                     FontAwesomeIcons.solidSun,
-                    color: SnowStorm.nord4,
+                    color: Theme.of(context).primaryIconTheme.color,
                   ),
                 ),
               ),
