@@ -1,7 +1,6 @@
 //@dart=2.9
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:website/components/http_service.dart';
 import 'package:website/components/models/ip_location.dart';
 import 'package:website/components/theme_changer.dart';
 import 'package:flutter/foundation.dart';
@@ -34,7 +33,7 @@ void main() async {
       await FirebaseAuth.instance.signInAnonymously();
   FirebaseAnalytics analytics = FirebaseAnalytics();
   analytics.setUserId(userCredential.user.uid);
-   IPLocation location= await HttpService.getLocation();
+  IPLocation location= await IPLocation.getLocation();
   analytics.setUserProperty(name: "IP", value: location.query);
   analytics.setUserProperty(name: "State", value: location.regionName);
   analytics.setUserProperty(name: "City", value: location.city);
