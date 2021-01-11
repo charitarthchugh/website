@@ -1,4 +1,8 @@
 //@dart=2.9
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:website/components/http_service.dart';
+import 'package:website/components/models/ip_location.dart';
 import 'package:website/components/theme_changer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +13,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 //Internal Packages
 import 'dom.dart';
 
-FirebaseAnalytics analytics;
-
-void main() {
+void main() async {
   //Licenses
   //OFL for Google Fonts
   LicenseRegistry.addLicense(() async* {
@@ -26,8 +28,24 @@ void main() {
       "Photo by Mike Yukhtenko on Unsplash. https://unsplash.com/photos/a2kD4b0KK4s"
     ], unsplashLicense);
   });
-  analytics = FirebaseAnalytics();
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  UserCredential userCredential =
+      await FirebaseAuth.instance.signInAnonymously();
+  FirebaseAnalytics analytics = FirebaseAnalytics();
+  analytics.setUserId(userCredential.user.uid);
+   IPLocation location= await HttpService.getLocation();
+  analytics.setUserProperty(name: "IP", value: location.query);
+  analytics.setUserProperty(name: "State", value: location.regionName);
+  analytics.setUserProperty(name: "City", value: location.city);
+  analytics.setUserProperty(name: "ISP", value: location.isp);
+  analytics.setUserProperty(name: "Zip", value: location.zip);
+  var now = DateTime.now();
+  analytics.setUserProperty(
+      name: "lastTimeAccessed",
+      value: DateTime(now.year, now.month, now.day, now.hour, now.minute)
+          .toString());
+  analytics.logAppOpen();
   runApp(MyApp());
 }
 
