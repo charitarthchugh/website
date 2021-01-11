@@ -3,7 +3,10 @@ import 'dart:core';
 import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:website/components/frame.dart';
 
 //Internal packages
 import 'package:website/views/home.dart';
@@ -11,45 +14,6 @@ import 'package:website/views/projects.dart';
 import 'package:website/views/about.dart';
 import 'package:website/views/skills.dart';
 import 'package:website/views/social.dart';
-
-/*
-class DOM extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      color: context.backgroundColor,
-      width: MediaQuery.of(context).size.width,
-      child: ResponsiveWidget(
-        largeScreen: ListView(children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Home(),
-              ResponsiveWidget.isSmallScreen(context)
-                  ? SizedBox(
-                      height: ResponsiveWidget.getScreenHeight(context) * .4,
-                    )
-                  : SizedBox(
-                      height: ResponsiveWidget.getScreenHeight(context) * .6,
-                    ),
-              AboutMe(),
-              SizedBox(
-                height: ResponsiveWidget.getScreenHeight(context) * .2,
-              ),
-              //Social(),
-              SizedBox(
-                height: ResponsiveWidget.getScreenHeight(context) * .1,
-              ),
-              Social()
-            ],
-          ),
-        ]),
-      ),
-    ));
-  }
-}
-*/
 
 class DOM extends StatefulWidget {
   @override
@@ -75,18 +39,6 @@ class DOMState extends State<DOM> {
 
   @override
   Widget build(BuildContext context) {
-    final PageView pageView = PageView(
-      scrollDirection: Axis.vertical,
-      pageSnapping: false,
-      physics: ScrollPhysics(),
-      controller: _scrollController,
-      children: [
-        Home(),
-        About(),
-        //Projects(),
-        Social()
-      ],
-    );
     return Scaffold(
         body: Stack(
       children: [
@@ -98,11 +50,12 @@ class DOMState extends State<DOM> {
             }
             debugPrint("Not Navigating");
             if (details is PointerScrollEvent) {
-              if (details.scrollDelta.dy >= 1.5) {
-                isNavigating.toggle();
+              if (details.scrollDelta.dy >= 1.5 &&
+                  currentPageOffset<=5) {
+                isNavigating = true;
                 nextPage();
-              } else if (details.scrollDelta.dy <= -1.5) {
-                isNavigating.toggle();
+              } else if (details.scrollDelta.dy <= -1.5&&currentPageOffset<=5) {
+                isNavigating = true;
                 previousPage();
               }
             }
@@ -147,7 +100,20 @@ class DOMState extends State<DOM> {
               },
             ),
           ),
-        )
+        ),  (currentPageOffset == 0) ?
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: RawMaterialButton(
+              onPressed: () {
+                nextPage();
+              },
+              child: Icon(
+                FontAwesomeIcons.chevronDown,
+                color: Theme.of(context).iconTheme.color,
+              ),
+              shape: CircleBorder(),
+            ),
+          ):Container(),
       ],
     ));
   }
@@ -161,7 +127,7 @@ class DOMState extends State<DOM> {
         _selectedPageIndex--;
         _scrollController.animateToPage(
           _selectedPageIndex,
-          duration: Duration(milliseconds: 900),
+          duration: const Duration(milliseconds: 900),
           curve: Curves.easeInOut,
         );
       });
@@ -201,6 +167,6 @@ class DOMState extends State<DOM> {
       return Projects();
     } else if (index == 4) {
       return Social();
-    }
+    } //else return Social();
   }
 }
