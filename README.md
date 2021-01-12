@@ -4,11 +4,10 @@
 
 I collect anonymized data for your visit to my site and store it in Firebase.
 What I collect:
-- IP address(can be easily circumvented)(using an [api](https:/ip-api.com))
-- Location based off of IP address(not accurate, can be easily circumvented)(using an [api](https:/ip-api.com))
-- Your ISP(can be easily circumvented)(using an [api](https:/ip-api.com))
+- IP address(can be easily circumvented)(using an [api](https://ip-api.com))
+- Location based off of IP address(not accurate, can be easily circumvented)(using an [api](https://ip-api.com))
+- Your ISP(can be easily circumvented)(using an [api](https://ip-api.com))
 - The time of your visit.
-
 
 ## License
 
