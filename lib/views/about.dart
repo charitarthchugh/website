@@ -1,27 +1,30 @@
 //External Dependencies
 //import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-//Internal Dependencies
-import 'package:website/components/responsive_widget.dart';
-import 'package:provider/provider.dart';
-import '../../components/theme_changer.dart';
 import "package:velocity_x/velocity_x.dart";
+import 'package:website/components/frame.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
-class AboutMe extends StatelessWidget {
-  AboutMe({
+class About extends StatelessWidget {
+  About({
     Key key,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-    const String aboutme="I am a high school senior at Trumbull High "
+    const String aboutMe = "I am a high school senior at Trumbull High "
         "in Trumbull Connecticut who is interested in machine learning, data "
         "science, and Linux. I am a technology enthusiast who is keen on "
-        "sharing my knowledge to others. Programming is my passion.";
-    final theme = Provider.of<ThemeChanger>(context);
-    return VxDevice(mobile: Column(), web: Column());
+        "sharing my knowledge to others and exploring new technologies. Programming is my passion.";
+    return VxDevice(
+        mobile: Column(
+          children: [Image.asset("assets/images/myself.png")],
+        ),
+        web: Frame(
+          child: Row(
+            children: [Image.asset("assets/images/myself.png")],
+          ),
+        ));
     /*final profileData = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
