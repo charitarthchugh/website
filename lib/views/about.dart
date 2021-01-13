@@ -16,15 +16,14 @@ class About extends StatelessWidget {
         "in Trumbull Connecticut who is interested in machine learning, data "
         "science, and Linux. I am a technology enthusiast who is keen on "
         "sharing my knowledge to others and exploring new technologies. Programming is my passion.";
-    return VxDevice(
-        mobile: Column(
-          children: [Image.asset("assets/images/myself.png")],
-        ),
-        web: Frame(
-          child: Row(
-            children: [Image.asset("assets/images/myself.png")],
-          ),
-        ));
+    return Frame(
+      child: Row(
+        children: [
+          Image(
+              image: AssetImage("assets/images/myself_transperancy_circle.png"))
+        ],
+      ),
+    );
     /*final profileData = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
