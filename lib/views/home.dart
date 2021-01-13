@@ -31,10 +31,14 @@ class Home extends StatelessWidget {
                 ? CrossFadeState.showSecond
                 : CrossFadeState.showFirst,
             firstChild: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/test.jpg",),fit: BoxFit.cover))//NetworkImage(_imageURILight), fit: BoxFit.cover)),
-            ),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                          "assets/images/test.jpg",
+                        ),
+                        fit: BoxFit.cover))
+                //NetworkImage(_imageURILight), fit: BoxFit.cover)),
+                ),
             secondChild: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
