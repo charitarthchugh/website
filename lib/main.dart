@@ -1,16 +1,16 @@
 //@dart=2.9
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:website/components/models/ip_location.dart';
-import 'package:website/components/theme_changer.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 
 //Internal Packages
 import 'dom.dart';
+import 'components/theme_changer.dart';
+import 'components/models/ip_location.dart';
 
 void main() async {
   //Licenses
