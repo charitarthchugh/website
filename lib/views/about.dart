@@ -20,7 +20,10 @@ class About extends StatelessWidget {
       child: Row(
         children: [
           Image(
-              image: AssetImage("assets/images/myself_transperancy_circle.png"))
+              fit: BoxFit.contain,
+              image: AssetImage("assets/images/myself/light.webp")
+            //AssetImage("assets/images/myself.png")/*AssetImage("assets/images/myself_transperancy_circle.png")*/)
+          ),
         ],
       ),
     );

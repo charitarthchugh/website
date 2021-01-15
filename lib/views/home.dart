@@ -25,27 +25,21 @@ class Home extends StatelessWidget {
       width: context.screenWidth,
       child: Stack(
         children: [
-          AnimatedCrossFade(
-            duration: const Duration(milliseconds: 100),
-            crossFadeState: theme.isDark()
-                ? CrossFadeState.showSecond
-                : CrossFadeState.showFirst,
-            firstChild: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(
-                          "assets/images/test.jpg",
-                        ),
-                        fit: BoxFit.cover))
-                //NetworkImage(_imageURILight), fit: BoxFit.cover)),
-                ),
-            secondChild: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/dark/background.webp"),
-                      fit: BoxFit.cover)),
-            ),
-          ),
+          theme.isDark()
+              ? Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            "assets/images/background/dark.webp",
+                          ),
+                          fit: BoxFit.cover)))
+              : Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                            "assets/images/background/light.webp",
+                          ),
+                          fit: BoxFit.cover))),
           Align(
             alignment: Alignment.center,
             child: AutoSizeText.rich(
