@@ -34,6 +34,7 @@ class ThemeChanger with ChangeNotifier {
       canvasColor: Color.fromRGBO(36, 41, 51, 1),
       //PolarNight.nord0,
       errorColor: Aurora.nord11,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       highlightColor: SnowStorm.nord5,
       iconTheme: IconThemeData(color: SnowStorm.nord4),
       textTheme: TextTheme(
@@ -53,6 +54,7 @@ class ThemeChanger with ChangeNotifier {
       shadowColor: SnowStorm.nord5,
       canvasColor: SnowStorm.nord4,
       errorColor: Aurora.nord11,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       iconTheme: IconThemeData(color: PolarNight.nord0),
       textTheme: TextTheme(
           headline1: GoogleFonts.notoSans(
