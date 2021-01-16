@@ -60,7 +60,7 @@ class Home extends StatelessWidget {
               minFontSize: 40,
               stepGranularity: 8,
               textAlign: TextAlign.center,
-            ),
+            ).shimmer(duration: const Duration(seconds: 2)),
           ),
           Align(
             alignment: Alignment.topLeft,
