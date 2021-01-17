@@ -15,25 +15,6 @@ class About extends StatelessWidget {
         "in Trumbull, Connecticut who is interested in machine learning, data "
         "science, and Linux. I am a technology enthusiast who is keen on "
         "sharing my knowledge to others and exploring new technologies. Programming is my passion.";
-    /* return Frame(
-      child: Center(
-        child: Row(
-          children: [
-            Image(
-                    width: context.screenHeight * .3,
-                    fit: BoxFit.contain,
-                    image: theme.isDark()
-                        ? AssetImage("assets/images/myself/light.webp")
-                        : AssetImage("assets/images/myself/dark.webp"))
-                .p64(),
-            Center(
-                child: AutoSizeText.rich(TextSpan(
-              text: aboutMe,
-            )).box.square(500).make().scale150())
-          ],
-        ),
-      ),
-    ); */
     final profileData = AutoSizeText(
       aboutMe,
       softWrap: true,
