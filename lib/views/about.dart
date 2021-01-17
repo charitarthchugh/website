@@ -1,9 +1,8 @@
 //External Dependencies
-//import 'package:cached_network_image/cached_network_image.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import "package:velocity_x/velocity_x.dart";
 import 'package:website/components/frame.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 class About extends StatelessWidget {
   About({
@@ -13,66 +12,70 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const String aboutMe = "I am a high school senior at Trumbull High "
-        "in Trumbull Connecticut who is interested in machine learning, data "
+        "in Trumbull, Connecticut who is interested in machine learning, data "
         "science, and Linux. I am a technology enthusiast who is keen on "
         "sharing my knowledge to others and exploring new technologies. Programming is my passion.";
-    return Frame(
-      child: Row(
-        children: [
-          Image(
-              fit: BoxFit.contain,
-              image: AssetImage("assets/images/myself/light.webp")
-            //AssetImage("assets/images/myself.png")/*AssetImage("assets/images/myself_transperancy_circle.png")*/)
-          ),
-        ],
-      ),
-    );
-    /*final profileData = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          "Hi,This is some sample text.\n Flutter is awesome!",
-          softWrap: true,
-          textScaleFactor: 1.5,
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white70, fontSize: 16),
-        )
-      ],
-    );
-    final profileImage = AnimatedContainer(
-      duration: const Duration(seconds: 1),
-      height: ResponsiveWidget.isSmallScreen(context)
-          ? MediaQuery.of(context).size.height * .25
-          : MediaQuery.of(context).size.width * .23,
-      width: ResponsiveWidget.isSmallScreen(context)
-          ? MediaQuery.of(context).size.height * .25
-          : MediaQuery.of(context).size.width * .23,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/myself.jpg'),
-              alignment: Alignment.center,
-              fit: BoxFit.cover)),
-    );
-    return Container(
-
-      // width: super,
-      child: ResponsiveWidget(
-        largeScreen: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[profileImage, profileData],
-        ),
-        smallScreen: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            profileImage,
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .1,
-            ),
-            profileData
+    /* return Frame(
+      child: Center(
+        child: Row(
+          children: [
+            Image(
+                    width: context.screenHeight * .3,
+                    fit: BoxFit.contain,
+                    image: theme.isDark()
+                        ? AssetImage("assets/images/myself/light.webp")
+                        : AssetImage("assets/images/myself/dark.webp"))
+                .p64(),
+            Center(
+                child: AutoSizeText.rich(TextSpan(
+              text: aboutMe,
+            )).box.square(500).make().scale150())
           ],
         ),
       ),
-    );*/
+    ); */
+    final profileData = AutoSizeText(
+      aboutMe,
+      softWrap: true,
+      minFontSize: 30,
+      textScaleFactor: 1,
+      textAlign: TextAlign.center,
+      style: context.textTheme.bodyText1,
+    );
+    final profileImage = Container(
+      height: context.isMobile
+          ? context.mq.size.height * .25
+          : context.mq.size.width * .23,
+      width: context.isMobile
+          ? context.screenHeight * .25
+          : context.screenWidth * .23,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/myself.png'),
+              alignment: Alignment.center,
+              fit: BoxFit.cover)),
+    );
+    return Frame(
+      child: Center(
+        child: VxDevice(
+          web: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: profileImage,
+            ),
+            Container(
+              child: Center(child: profileData),
+              width: context.mq.size.width * .6,
+              height: context.mq.size.height * .5,
+            )
+          ].row(),
+          mobile: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[profileImage, profileData],
+          ),
+        ),
+      ),
+    );
   }
 }
