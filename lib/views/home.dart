@@ -1,25 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:website/components/nord.dart';
-import 'package:website/components/responsive_widget.dart';
-import 'package:website/components/theme_changer.dart';
 import 'package:flutter/material.dart';
-import 'package:website/dom.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:website/components/nord.dart';
+import 'package:website/components/theme_changer.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    /* final String _imageURIDark = "https://source.unsplash.com/a2kD4b0KK4s/" +
-        ResponsiveWidget.getScreenWidth(context).toInt().toString() +
-        "x" +
-        ResponsiveWidget.getScreenHeight(context).toInt().toString();*/
-    const String _imageURILight =
-        "https://source.unsplash.com/zuueig1w8WI/1920x1080";
     final theme = Provider.of<ThemeChanger>(context);
-
     return Container(
       height: context.screenHeight,
       width: context.screenWidth,
@@ -60,7 +51,7 @@ class Home extends StatelessWidget {
               minFontSize: 40,
               stepGranularity: 8,
               textAlign: TextAlign.center,
-            ).shimmer(duration: const Duration(seconds: 2)),
+            ).shimmer(duration: Duration(seconds: 2)),
           ),
           Align(
             alignment: Alignment.topLeft,
