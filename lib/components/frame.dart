@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class Frame extends StatelessWidget {
@@ -12,7 +13,16 @@ class Frame extends StatelessWidget {
     return VxDevice(
       mobile: Container(
         child: child,
-        decoration: BoxDecoration(),
+        decoration: BoxDecoration(
+            color: Theme.of(context).backgroundColor,
+            border:
+                Border(top: BorderSide(color: Theme.of(context).errorColor)),
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 5,
+                  spreadRadius: 1,
+                  color: Theme.of(context).shadowColor)
+            ]),
       ),
       web: Padding(
           padding: const EdgeInsets.all(40),
