@@ -23,9 +23,7 @@ void main() async {
   LicenseRegistry.addLicense(() async* {
     final unsplashLicense =
         await rootBundle.loadString("assets/licenses/Unsplash.txt");
-    yield LicenseEntryWithLineBreaks([
-      "Photo by Mike Yukhtenko on Unsplash. https://unsplash.com/photos/a2kD4b0KK4s"
-    ], unsplashLicense);
+    yield LicenseEntryWithLineBreaks(["unsplash"], unsplashLicense);
   });
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -33,7 +31,7 @@ void main() async {
       await FirebaseAuth.instance.signInAnonymously();
   FirebaseAnalytics analytics = FirebaseAnalytics();
   analytics.setUserId(userCredential.user.uid);
-  IPLocation location= await IPLocation.getLocation();
+  IPLocation location = await IPLocation.getLocation();
   analytics.setUserProperty(name: "IP", value: location.query);
   analytics.setUserProperty(name: "State", value: location.regionName);
   analytics.setUserProperty(name: "City", value: location.city);
