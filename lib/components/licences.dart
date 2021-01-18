@@ -10,9 +10,14 @@ class Licences {
     });
     //Unsplash license for picture
     LicenseRegistry.addLicense(() async* {
-      final unsplashLicense =
+      final license =
           await rootBundle.loadString("assets/licenses/Unsplash.txt");
-      yield LicenseEntryWithLineBreaks(["unsplash"], unsplashLicense);
+      yield LicenseEntryWithLineBreaks(["unsplash"], license);
+    });
+    LicenseRegistry.addLicense(() async* {
+      final license =
+      await rootBundle.loadString("assets/licenses/Logos.txt");
+      yield LicenseEntryWithLineBreaks(["Logos"], license);
     });
   }
 }

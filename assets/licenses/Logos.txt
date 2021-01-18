@@ -56,4 +56,6 @@ From Flaticon
 License at https://www.freepikcompany.com/legal#nav-flaticon
 __________________________________________
 Pytorch
-From Pytorch.org.
+From Pytorch.org
+Tux
+Licenced under GPL.
