@@ -38,7 +38,7 @@ class _SocialState extends State<Social> {
                 icon: FontAwesomeIcons.github,
               ),
               SocialButton(
-                  url: "https://linkedin.com/charitarth",
+                  url: "https://linkedin.com/in/charitarth",
                   icon: FontAwesomeIcons.linkedin),
               SocialButton(
                 url: "https://medium.com/@charitarth.chugh",
