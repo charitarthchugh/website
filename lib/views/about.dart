@@ -18,7 +18,7 @@ class About extends StatelessWidget {
     final profileData = AutoSizeText(
       aboutMe,
       softWrap: true,
-      minFontSize: 30,
+      minFontSize: 28,
       textScaleFactor: 1,
       textAlign: TextAlign.center,
       style: context.textTheme.bodyText1,
@@ -53,7 +53,7 @@ class About extends StatelessWidget {
           mobile: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[profileImage, profileData],
+            children: <Widget>[profileImage, profileData.p4(),],
           ),
         ),
       ),
