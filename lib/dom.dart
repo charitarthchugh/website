@@ -1,19 +1,18 @@
 //External Packages
 import 'dart:core';
-import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:website/components/frame.dart';
 
 //Internal packages
 import 'package:website/views/home.dart';
-import 'package:website/views/projects.dart';
 import 'package:website/views/about.dart';
 import 'package:website/views/skills.dart';
 import 'package:website/views/social.dart';
+
+import 'views/attribution.dart';
 
 class DOM extends StatefulWidget {
   @override
@@ -164,9 +163,11 @@ class DOMState extends State<DOM> {
     } else if (index == 2) {
       return Skills();
     } else if (index == 3) {
-      return Projects();
-    } else if (index == 4) {
       return Social();
-    } //else return Social();
+    } else if (index == 4) {
+      return Attribution();
+    } else return null;
   }
 }
+
+

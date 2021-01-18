@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/components/frame.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:website/components/nord.dart';
 
 class Skills extends StatefulWidget {
   Skills({Key key}) : super(key: key);
@@ -27,11 +26,11 @@ class _SkillsState extends State<Skills> {
       "Skills"
           .text
           .textStyle(context.textTheme.headline2)
-          .make(),
+          .make().py32().centered(),
       Expanded(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
+          child: ListView(
             children: [
               Wrap(
                 alignment: WrapAlignment.center,
@@ -51,7 +50,7 @@ class _SkillsState extends State<Skills> {
           ),
         ),
       )
-    ].column().centered());
+    ].column());
   }
 }
 
