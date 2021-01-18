@@ -15,7 +15,7 @@ jobs:
           channel: beta
       - run: flutter config --enable-web
       - name: Flutter Build Web    
-        run: flutter build web
+        run: flutter build web --release
       - name: Firebase deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
