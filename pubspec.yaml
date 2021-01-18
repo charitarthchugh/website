@@ -40,7 +40,7 @@ flutter:
         - assets/images/
         - assets/images/background/
         - assets/images/myself/
-        - assets/images/logos
+        - assets/images/logos/
         - assets/images/original/
         - assets/licenses/
 
