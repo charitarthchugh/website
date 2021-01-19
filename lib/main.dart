@@ -1,32 +1,24 @@
-import 'package:charitarthchugh/components/theme.dart';
+//@dart=2.9
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:website/components/FirebaseInit.dart';
+import 'package:website/components/licences.dart';
 
 //Internal Packages
-import 'views/profile_page.dart';
+import 'dom.dart';
+import 'components/theme_changer.dart';
 
-void main() {
+void main() async {
   //Licenses
-  //OFL for Google Fonts
-  LicenseRegistry.addLicense(() async* {
-    final license = await rootBundle.loadString('assets/licenses/OFL.txt');
-    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
-  });
-  //Unsplash license for picture
-  LicenseRegistry.addLicense(() async* {
-    final unsplashLicense =
-        await rootBundle.loadString("assets/licenses/Unsplash.txt");
-    yield LicenseEntryWithLineBreaks([
-      "Photo by Mike Yukhtenko on Unsplash. https://unsplash.com/photos/a2kD4b0KK4s"
-    ], unsplashLicense);
-  });
+  await Licences.load();
+  WidgetsFlutterBinding.ensureInitialized();
+  //Initialize Firebase
+  await FirebaseInit.init();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget{
-  
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
@@ -48,8 +40,8 @@ class MaterialAppWithTheme extends StatelessWidget {
         title: 'Charitarth Chugh',
         debugShowCheckedModeBanner: false,
         themeMode: theme.getMode(),
-        theme:theme.light(context),
+        theme: theme.light(context),
         darkTheme: theme.dark(context),
-        home: ProfilePage());
+        home: DOM());
   }
 }
