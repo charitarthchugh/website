@@ -12,7 +12,9 @@ jobs:
       - name: Cache
         uses: actions/cache@v2
         with: 
-          path: build/
+          path: |
+            build/
+            .dart_tool
           key: build
       - name: Flutter setup
         uses: subosito/flutter-action@v1
@@ -20,7 +22,7 @@ jobs:
       - run: flutter pub get
       - run:  which flutter; ls -a ~; ls -a ../
       - name: Flutter Build Web    
-        run: flutter build web --release
+        run: flutter build web
       - name: Firebase deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
