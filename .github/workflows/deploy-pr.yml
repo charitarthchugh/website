@@ -13,6 +13,7 @@ jobs:
         uses: actions/cache@v2
         with: 
           path: build/
+          key: build
       - name: Flutter setup
         uses: subosito/flutter-action@v1
       - run: flutter config --enable-web
