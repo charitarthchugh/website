@@ -2,19 +2,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:website/components/FirebaseInit.dart';
 import 'package:website/components/licences.dart';
 
+import 'components/theme_changer.dart';
 //Internal Packages
 import 'dom.dart';
-import 'components/theme_changer.dart';
 
 void main() async {
   //Licenses
   await Licences.load();
   WidgetsFlutterBinding.ensureInitialized();
   //Initialize Firebase
-  await FirebaseInit.init();
+  //await FirebaseInit.init();
   runApp(MyApp());
 }
 
