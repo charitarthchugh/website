@@ -7,12 +7,18 @@ jobs:
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+     # - name: Cache
+     #   uses: actions/cache@v2
+     #   with: 
+     #     path: 
       - name: Flutter setup
         uses: subosito/flutter-action@v1
       - run: flutter config --enable-web
       - name: Flutter Build Web    
         run: flutter build web --release
+      - run:  which flutter; ls -a ~; ls -a ../
       - name: Firebase deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
