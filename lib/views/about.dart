@@ -11,8 +11,8 @@ class About extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String aboutMe = "I am a high school senior at Trumbull High "
-        "in Trumbull, Connecticut who is interested in machine learning, data "
+    const String aboutMe = "I am a freshman at the University of Connecticut's School of Engineering "
+        "who is interested in machine learning, data "
         "science, and Linux. I am a technology enthusiast who is keen on "
         "sharing my knowledge to others and exploring new technologies. Programming is my passion.";
     final profileData = AutoSizeText(
